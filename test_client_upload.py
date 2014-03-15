@@ -9,14 +9,15 @@ import unittest
 import dropbox
 
 
-class TestDropboxClientSetup(unittest.TestCase):
+class TestDropboxUpload(unittest.TestCase):
+    """Test the upload process"""
     def setUp(self):
         pass
     def tearDown(self):
         pass
 
-    def test_client_access(self):
-        key, secret = DB_APP_KEY, DB_APP_SECRET
+    def test_client_upload(self):
+        """Uploads a sample video clip"""
         access_token = ACCESS_TOKEN
         if not ACCESS_TOKEN:
             # promot input

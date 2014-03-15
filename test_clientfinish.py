@@ -13,17 +13,16 @@ class TestDropboxClientSetup(unittest.TestCase):
 
     def test_create_flow_finish(self):
         key, secret = DB_APP_KEY, DB_APP_SECRET
-        if not key or not secret:
-            # promot input
-            pass
         termprint('ERROR', '\n\nNow enter the authorization code below ')
         authcode = raw_input('Authorization code: ').strip()
 
+        # finish and get the access token from the authcode
         flow = dropbox.client.DropboxOAuth2FlowNoRedirect(key, secret)
         access_token, user_id = flow.finish(authcode)
 
         termprint('INFO', 'OK Access token is: %s' % (access_token))
 
+        # check access
         client = dropbox.client.DropboxClient(access_token)
         self.assertTrue(client)
 
