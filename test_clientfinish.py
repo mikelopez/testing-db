@@ -1,8 +1,4 @@
-from local_settings import DB_APP_KEY, DB_APP_SECRET
-from termprint import *
-import urllib
-import unittest
-import dropbox
+from base import *
 
 
 class TestDropboxClientSetup(unittest.TestCase):
