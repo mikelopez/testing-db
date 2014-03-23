@@ -8,18 +8,15 @@ import urllib
 import unittest
 import dropbox
 
-video = "othersamplevideo.mp4"
-fn = "/Test Uploads from API/%s" % video
 
-class TestDropboxUpload(unittest.TestCase):
-    """Test the upload process"""
+class TestDropboxShareURL(unittest.TestCase):
+    """Tests the download file process"""
     def setUp(self):
         pass
     def tearDown(self):
         pass
 
-    def test_client_upload(self):
-        """Uploads a sample video clip"""
+    def test_client_download(self):
         access_token = ACCESS_TOKEN
         if not ACCESS_TOKEN:
             # promot input
@@ -27,12 +24,9 @@ class TestDropboxUpload(unittest.TestCase):
             termprint('ERROR', 'Run: ./test-get-access-token.sh')
             sys.exit()
         client = dropbox.client.DropboxClient(access_token)
-        #folder_metadata = client.metadata('/')
-        f = open('samplevideo.mp4', 'rb')
-        response = client.put_file('%s' % fn, f)
-        f.close()
-        print 'Uploaded: ', response
-
+        #f, metadata = client.get_file_and_metadata('/Test Uploads from API/samplevideo.mp4')
+        f = client.share('/Test Uploads from API/samplevideo.mp4')
+        termprint("INFO", f)
 
 
 
