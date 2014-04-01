@@ -11,7 +11,7 @@ class TestDropboxDownload(unittest.TestCase):
         """Tests a download"""
         try:
             dlpath, savepath = sys.argv[1], sys.arv[2]
-            termprint('INFO', 'Download Path %s %s' % (dlpath, savepath)
+            termprint('INFO', 'Download Path %s %s' % (dlpath, savepath))
         except IndexError:
             dlpath, savepath = "/Test Uploads from API/samplevideo.mp4", \
                                "samplevideo-download.mp4"
